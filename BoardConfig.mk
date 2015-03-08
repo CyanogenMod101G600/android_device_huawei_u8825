@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
--include vendor/huawei/u8833/BoardConfigVendor.mk
+-include vendor/huawei/u8825/BoardConfigVendor.mk
 
 # Platform
 TARGET_NO_BOOTLOADER := true
@@ -45,17 +45,17 @@ ARCH_ARM_HAVE_32_BYTE_CACHE_LINES := true
 # Kernel 
 TARGET_KERNEL_SOURCE := kernel/huawei/u8833
 TARGET_KERNEL_CONFIG := synopsis_defconfig
-TARGET_BOOTLOADER_BOARD_NAME := u8833
+TARGET_BOOTLOADER_BOARD_NAME := u8825
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-4.9/bin/arm-cortex-linux-gnueabi-
 BOARD_KERNEL_CMDLINE := androidboot.hardware=huawei
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_PAGE_SIZE := 2048
 TARGET_USERIMAGES_USE_EXT4 := true
 
-TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8833/include
+TARGET_SPECIFIC_HEADER_PATH := device/huawei/u8825/include
 
 # Graphics
-BOARD_EGL_CFG := device/huawei/u8833/prebuilt/system/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/huawei/u8825/prebuilt/system/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
 TARGET_QCOM_DISPLAY_VARIANT := legacy
@@ -93,19 +93,15 @@ BOARD_HAS_ATH_WLAN := true
 TARGET_PROVIDES_LIBAUDIO := true
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/huawei/u8833/ril/
+BOARD_RIL_CLASS := ../../../device/huawei/u8825/ril/
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/huawei/u8833/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/huawei/u8825/bluetooth
 
 # Camera
 USE_CAMERA_STUB := false
 COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB
-
-# FM Radio
-BOARD_HAVE_QCOM_FM := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_FM_ENABLED
 
 # Dalvik
 TARGET_ARCH_LOWMEM := true
@@ -121,18 +117,18 @@ TARGET_FORCE_CPU_UPLOAD := true
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8833/recovery/kernel
-TARGET_RECOVERY_INITRC := device/huawei/u8833/recovery/init.rc
-TARGET_RECOVERY_FSTAB := device/huawei/u8833/recovery/etc/recovery.fstab
+TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8825/recovery/kernel
+TARGET_RECOVERY_INITRC := device/huawei/u8825/recovery/init.rc
+TARGET_RECOVERY_FSTAB := device/huawei/u8825/recovery/etc/recovery.fstab
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_USES_MMCUTILS := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8833/recovery/recovery-keys.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/u8825/recovery/recovery-keys.c
 DEVICE_RESOLUTION := 480x800
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 BOARD_USE_CUSTOM_RECOVERY_FONT:= \"roboto_10x18.h\"
-BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/u8833/recovery/graphics.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/u8825/recovery/graphics.c
 
 # USB
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
@@ -159,4 +155,4 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1058320384
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1190596608
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_OTA_ASSERT_DEVICE := u8833,u8951,hwY300-0100,hwY300-0151,hwG510-0100,hwG510-0151,hwG510-0200,msm7627a,msm7x27a
+TARGET_OTA_ASSERT_DEVICE := u8825

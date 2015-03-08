@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-add_lunch_combo cm_u8833-userdebug
+add_lunch_combo cm_u8825-userdebug
 
 # Run device patches on the tree.
- sh device/huawei/u8833/patches/apply.sh
+ sh device/huawei/u8825/patches/apply.sh

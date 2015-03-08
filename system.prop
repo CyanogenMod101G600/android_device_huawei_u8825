@@ -1,5 +1,5 @@
 #
-# system.prop for u8833
+# system.prop for u8825
 #
 
 # Bluetooth
@@ -38,11 +38,6 @@ ro.sf.lcd_density=240
 persist.sys.use_dithering=0
 persist.sys.use_16bpp_alpha=1
 
-# FM Radio
-ro.fm.analogpath.supported=false
-ro.fm.transmitter=false
-ro.fm.mulinst.recording.support=false
-
 # Media
 media.stagefright.enable-player=true
 media.stagefright.enable-meta=false
@@ -65,9 +60,9 @@ ro.vendor.extension_library=/system/lib/libqc-opt.so
 
 # Telephony
 DEVICE_PROVISIONED=1
-rild.libpath=/system/lib/libril-qc-qmi-1.so
+rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
-gsm.version.baseband=2030
+gsm.version.baseband=1040
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
 persist.rild.nitz_long_ons_1=
@@ -91,9 +86,9 @@ ro.telephony.ril_class=HuaweiRIL2
 ro.telephony.ril.v3=qcomdsds,skippinpukcount
 
 # Huawei Properties
-ro.confg.hw_appfsversion=u8833VCM10_1_SYSIMG
-ro.confg.hw_appsbootversion=u8833VCM10_1_APPSBOOT
-ro.confg.hw_appversion=u8833VCM10_1_KERNEL
+ro.confg.hw_appfsversion=u8825VCM10_1_SYSIMG
+ro.confg.hw_appsbootversion=u8825VCM10_1_APPSBOOT
+ro.confg.hw_appversion=u8825VCM10_1_KERNEL
 
 # USB and Memory
 persist.sys.usb.config=mass_storage,adb

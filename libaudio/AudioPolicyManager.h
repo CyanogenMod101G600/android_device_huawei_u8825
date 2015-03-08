@@ -44,11 +44,18 @@ public:
         virtual ~AudioPolicyManager() {}
 
         virtual status_t setDeviceConnectionState(audio_devices_t device,
-                                                           AudioSystem::device_connection_state state,
-                                                           const char *device_address);
+                                                          AudioSystem::device_connection_state state,
+                                                          const char *device_address);
+        virtual AudioSystem::device_connection_state getDeviceConnectionState(audio_devices_t device,
+                                                                              const char *device_address);
+        virtual audio_io_handle_t getInput(int inputSource,
+                                            uint32_t samplingRate,
+                                            uint32_t format,
+                                            uint32_t channels,
+                                            AudioSystem::audio_in_acoustics acoustics);
 
-		virtual void setPhoneState(int state);
-		
+        virtual void setPhoneState(int state);
+
         virtual audio_devices_t getDeviceForVolume(audio_devices_t device);
 
         virtual uint32_t  checkDeviceMuteStrategies(AudioOutputDescriptor *outputDesc,
@@ -56,6 +63,7 @@ public:
                                             uint32_t delayMs);
         virtual void setForceUse(AudioSystem::force_use usage, AudioSystem::forced_config config);
 protected:
+
         virtual audio_devices_t getDeviceForStrategy(routing_strategy strategy, bool fromCache = true);
         fm_modes fmMode;
         bool pendingForceNone;
@@ -64,6 +72,16 @@ protected:
         // true is current platform supports suplication of notifications and ringtones over A2DP output
         //virtual bool a2dpUsedForSonification() const { return true; }
 #endif
+
+        // when a device is connected, checks if an open output can be routed
+        // to this device. If none is open, tries to open one of the available outputs.
+        // Returns an output suitable to this device or 0.
+        // when a device is disconnected, checks if an output is not used any more and
+        // returns its handle if any.
+        // transfers the audio tracks and effects from one output thread to another accordingly.
+        status_t checkOutputsForDevice(audio_devices_t device,
+                                       AudioSystem::device_connection_state state,
+                                       SortedVector<audio_io_handle_t>& outputs);
 
         virtual AudioPolicyManagerBase::IOProfile* getProfileForDirectOutput(
                                                      audio_devices_t device,
@@ -82,7 +100,7 @@ protected:
         // check that volume change is permitted, compute and send new volume to audio hardware
         status_t checkAndSetVolume(int stream, int index, audio_io_handle_t output, audio_devices_t device, int delayMs = 0, bool force = false);
         status_t stopInput(audio_io_handle_t input);
-		// select input device corresponding to requested audio source
+        // select input device corresponding to requested audio source
         virtual audio_devices_t getDeviceForInputSource(int inputSource);
 
         virtual uint32_t setOutputDevice(audio_io_handle_t output,
