@@ -1,0 +1,108 @@
+#
+# system.prop for u8833
+#
+
+# Bluetooth
+ro.bt.bdaddr_path=/data/misc/bluedroid/bdaddr
+ro.bluetooth.request.master=true
+ro.qualcomm.bluetooth.ftp=true
+ro.qualcomm.bluetooth.sap=true
+ro.bluetooth.remote.autoconnect=true
+
+# Camcorder
+debug.camcorder.disablemeta=0
+
+# CWM
+ro.cwm.enable_key_repeat=true
+
+# Headset hook delay in milli seconds
+headset.hook.delay=500
+
+# Send transmit power request to RIL during WiFi hotspot on/off
+ro.ril.transmitpower=true
+
+# Dalvik
+dalvik.vm.debug.alloc=0
+dalvik.vm.heapstartsize=5m
+dalvik.vm.heapgrowthlimit=52m
+dalvik.vm.heapsize=128m
+dalvik.vm.heaptargetutilization=0.25
+dalvik.vm.heapminfree=512k
+dalvik.vm.heapmaxfree=2m 
+
+# Display
+debug.composition.type=dyn
+ro.max.fling_velocity=4000
+ro.opengles.version=131072
+ro.sf.lcd_density=240
+persist.sys.use_dithering=0
+persist.sys.use_16bpp_alpha=1
+
+# FM Radio
+ro.fm.analogpath.supported=false
+ro.fm.transmitter=false
+ro.fm.mulinst.recording.support=false
+
+# Media
+media.stagefright.enable-player=true
+media.stagefright.enable-meta=false
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+
+# Memory
+ro.zram.default=0
+persist.sys.purgeable_assets=1
+sys.mem.max_hidden_apps=6
+
+# Qualcomm
+com.qc.hardware=true
+dev.pm.dyn_samplingrate=1
+dev.pm.dyn_sample_period=700000
+ro.vendor.extension_library=/system/lib/libqc-opt.so
+
+# Telephony
+DEVICE_PROVISIONED=1
+rild.libpath=/system/lib/libril-qc-qmi-1.so
+rild.libargs=-d /dev/smd0
+gsm.version.baseband=2030
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+ro.config.ehrpd=true
+ril.subscription.types=NV,RUIM
+ro.use_data_netmgrd=true
+persist.data.ds_fmc_app.mode=0
+persist.ims.regmanager.mode=0
+ro.multi.rild=false
+ro.dual.sim.phone=false
+persist.dsds.enabled=false
+ro.ril.enable.amr.wideband=1
+ro.telephony.call_ring.multiple=false
+ro.telephony.ril_class=HuaweiRIL2
+ro.telephony.ril.v3=qcomdsds,skippinpukcount
+
+# Huawei Properties
+ro.confg.hw_appfsversion=u8833VCM10_1_SYSIMG
+ro.confg.hw_appsbootversion=u8833VCM10_1_APPSBOOT
+ro.confg.hw_appversion=u8833VCM10_1_KERNEL
+
+# USB and Memory
+persist.sys.usb.config=mass_storage,adb
+ro.vold.umsdirtyratio=50
+ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1
+
+# Change to 1 for swapping SD cards
+persist.sys.vold.switchexternal=0
+
+# Wi-Fi
+wifi.interface=eth0
+wifi.supplicant_scan_interval=60
