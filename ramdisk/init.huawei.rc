@@ -1,4 +1,5 @@
 import init.huawei.usb.rc
+import init.synopsis.rc
 
 on init
     # Needed for G510

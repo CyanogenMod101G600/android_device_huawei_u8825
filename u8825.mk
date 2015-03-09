@@ -74,13 +74,15 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 PRODUCT_COPY_FILES += \
-    device/huawei/u8825/ramdisk/ar6000.ko:root/wifi/ar6000.ko \
-    device/huawei/u8825/ramdisk/cfg80211.ko:root/wifi/cfg80211.ko \
     device/huawei/u8825/ramdisk/init.huawei.rc:root/init.huawei.rc \
     device/huawei/u8825/ramdisk/init.huawei.usb.rc:root/init.huawei.usb.rc \
+    device/huawei/u8825/ramdisk/init.synopsis.rc:root/init.synopsis.rc \
     device/huawei/u8825/ramdisk/fstab.huawei:root/fstab.huawei \
     device/huawei/u8825/ramdisk/ueventd.huawei.rc:root/ueventd.huawei.rc \
-    device/huawei/u8825/ramdisk/tp/1191601.img:root/tp/1191601.img
+    device/huawei/u8825/ramdisk/tp/1191601.img:root/tp/1191601.img \
+    device/huawei/u8825/ramdisk/synopsis/service.frandom.sh:root/synopsis/service.frandom.sh \
+    device/huawei/u8825/ramdisk/wifi/ar6000.ko:root/wifi/ar6000.ko \
+    device/huawei/u8825/ramdisk/wifi/cfg80211.ko:root/wifi/cfg80211.ko
 	
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/huawei/u8825/prebuilt/system,system)

@@ -1,0 +1,29 @@
+# Copyright (c) 2014, moddingg33k. All rights reserved.
+#
+# This is an extension to the init.rc script written
+# for:
+#			 	- sληορsιs - Kernel
+#
+# It has to be included in the init.rc script by adding:
+#	import /init.synopsis.rc
+#
+#
+
+on boot
+
+# FRANDOM
+on property:persist.synopsis.frandom=1
+	start synopsis-frandom
+
+#~~~~~~~~~~~~~~~~~~~~
+#  SERVICEs SECTION
+#~~~~~~~~~~~~~~~~~~~~
+
+# frandom service
+service synopsis-frandom /system/bin/sh /synopsis/service.frandom.sh
+    class main
+	user root
+	group shell
+	oneshot
+	disabled
+
