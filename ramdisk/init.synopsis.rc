@@ -11,6 +11,15 @@
 
 on boot
 
+# Misc permissions
+chown -R root shell /synopsis
+chmod -R 0777 /synopsis
+chmod 0666 /dev/erandom
+chmod 0666 /dev/frandom
+
+# Kernel Samepage Merging (KSM)
+write /sys/kernel/mm/ksm/deferred_timer 1
+
 # FRANDOM
 on property:persist.synopsis.frandom=1
 	start synopsis-frandom
@@ -26,4 +35,3 @@ service synopsis-frandom /system/bin/sh /synopsis/service.frandom.sh
 	group shell
 	oneshot
 	disabled
-
